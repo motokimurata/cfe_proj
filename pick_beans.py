@@ -65,8 +65,6 @@ photo_get
 """
 print("photo get start")
 
-# モジュールのインポート
-import os, tkinter, tkinter.filedialog, tkinter.messagebox
 
 # ファイル選択ダイアログの表示
 root = tkinter.Tk()
