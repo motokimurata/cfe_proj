@@ -5,23 +5,12 @@ import cv2
 import numpy as np
 import tkinter, tkinter.filedialog, tkinter.messagebox
 import pickle
+from assets.getpath import getDataSet
 
 ## 画像データのクラスIDとパスを取得
 #
 # @param dir_path 検索ディレクトリ
 # @return data_sets [クラスID, 画像データのパス]のリスト
-def getDataSet(dir_path):
-    data_sets = []    
-
-    sub_dirs = os.listdir(dir_path)
-    for classId in sub_dirs:
-        sub_dir_path = dir_path + '/' + classId
-        img_files = os.listdir(sub_dir_path)
-        for f in img_files:
-            data_sets.append([classId, sub_dir_path + '/' + f])
-
-    return data_sets
-
 
 def train_data(data_path):
     """
@@ -59,11 +48,9 @@ def train_data(data_path):
     # Bag Of Visual Words分類器で特徴ベクトルを分類
     codebook = bowTrainer.cluster()
     # 訓練完了
+    np.save('bean_traning.npy',codebook)
     print("train finish")
-    return codebook
-
 
 if __name__ == '__main__':
     train_data('train_img')
-    np.save('bean_traning.npy',codebook)
 
