@@ -4,8 +4,8 @@ import sys
 import cv2
 import numpy as np
 import tkinter, tkinter.filedialog, tkinter.messagebox
-from split_beans import detect_contour
-from training_beans import getDataSet
+from assets.split_beans import detect_contour
+from assets.getpath import getDataSet
 
 """
 photo_get
@@ -20,6 +20,7 @@ root.withdraw()
 # ここの1行を変更　fTyp = [("","*")] →　fTyp = [("","*.csv")]
 fTyp = [("","*.jpg")]
 curdir = os.getcwd()
+print(curdir)
 iDir = curdir + '/photo'
 file = tkinter.filedialog.askopenfilename(filetypes = fTyp ,initialdir = iDir)
 
