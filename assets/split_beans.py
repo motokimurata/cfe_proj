@@ -54,5 +54,5 @@ def detect_contour(path):
   cv2.destroyAllWindows()
   cv2.waitKey(1)
   
-  if __name__ == '__main__':
-      detect_contour('photo/cfe07.jpg')
+if __name__ == '__main__':
+  detect_contour('photo/cfe07.jpg')
